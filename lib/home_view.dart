@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'home_controller.dart';
+import 'map_screen.dart';
 
 class HomeView extends GetView<HomeController> {
   HomeView({Key? key}) : super(key: key);
   var txt = TextEditingController();
+  
 
   @override
   Widget build(BuildContext context) {
@@ -100,12 +102,17 @@ class HomeView extends GetView<HomeController> {
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MapScreen()),
+                    );
+                  },
                   child: const Text(
                     'Find on Map',
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
