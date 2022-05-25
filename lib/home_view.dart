@@ -3,8 +3,9 @@ import 'package:get/get.dart';
 import 'home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
-  const HomeView({Key? key}) : super(key: key);
-  
+  HomeView({Key? key}) : super(key: key);
+  var txt = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +36,7 @@ class HomeView extends GetView<HomeController> {
                 ),
               ),
               const SizedBox(
-                height: 40,
+                height: 20,
               ),
               Obx(
                 () => Text(
@@ -73,6 +74,38 @@ class HomeView extends GetView<HomeController> {
                   ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.all(15),
+                child: ElevatedButton(
+                  onPressed: () {
+                    txt.text = controller.address.value;
+                  },
+                  child: const Text(
+                    'Confirm Address',
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextField(
+                  textAlign: TextAlign.left,
+                  maxLines: 3,
+                  controller: txt,
+                  style: const TextStyle(
+                    color: Colors.black45,
+                    fontSize: 25,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'Find on Map',
+                  ),
+                ),
+              )
             ],
           ),
         ),

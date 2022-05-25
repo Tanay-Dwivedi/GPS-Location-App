@@ -72,7 +72,7 @@ class HomeController extends GetxController {
     Placemark place = placemark[0];
     //address.value = 'Address : ${place.locality},${place.country}';
     address.value =
-        'Address : ${place.street}, ${place.locality}, ${place.postalCode}, ${place.country}';
+        '${place.street}, ${place.locality}, ${place.postalCode}, ${place.country}';
   }
 }
 
