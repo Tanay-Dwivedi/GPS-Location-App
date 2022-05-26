@@ -1,13 +1,7 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'home_controller.dart';
 import 'map_screen.dart';
-import 'package:latlong2/latlong.dart';
-import 'package:http/http.dart' as http;
-//import 'dart:js';
 
 class HomeView extends GetView<HomeController> {
   HomeView({Key? key}) : super(key: key);
@@ -15,30 +9,6 @@ class HomeView extends GetView<HomeController> {
   var clat = '';
   var clot = '';
   var addressOfTheUser = '';
-  //final LatLng place = LatLng(52.376372, 4.908066);
-
-  // getAddress(Value, lat, lng) async {
-  //   final Map<String, String> queryParams = {
-  //     'key': '06zU1pnrAR1lZwcZguKDycIgIE8zoxWq'
-  //   };
-  //   queryParams['lat'] = '$lat';
-  //   queryParams['lng'] = '$lng';
-  //   var response = await http.get(
-  //     Uri.https('api.tomtom.com', '/search/2/search/$Value.json', queryParams),
-  //   );
-  //   var jsonData = jsonDecode(response.body);
-  //   print('$jsonData');
-  //   var results = jsonData('results');
-  //   for (var element in results) {
-  //     var position = element['position'];
-  //     // var marker = Marker(
-  //     //   point: LatLng(position['lat'], position['lng']),
-  //     //   width: 50.0,
-  //     //   height: 50.0,
-  //     // );
-  //   }
-  //   ;
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +101,6 @@ class HomeView extends GetView<HomeController> {
                       maxLines: 3,
                       controller: txt,
                       onSubmitted: (value) {
-                        //getAddress(addressOfTheUser, clat, clot);
                         addressOfTheUser = value;
                       },
                       style: const TextStyle(

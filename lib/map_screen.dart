@@ -3,17 +3,18 @@ import "package:flutter_map/flutter_map.dart";
 import 'package:latlong2/latlong.dart';
 
 class MapScreen extends StatelessWidget {
-
-  MapScreen({Key? key, required this.lati, required this.longi})
+  const MapScreen({Key? key, required this.lati, required this.longi})
       : super(key: key);
 
   final String lati;
   final String longi;
-  final LatLng place = LatLng(23.0753926 , 76.8602017);
   final String apiKey = "06zU1pnrAR1lZwcZguKDycIgIE8zoxWq";
 
   @override
   Widget build(BuildContext context) {
+    late double latVal = double.parse(lati);
+    late double lngVal = double.parse(longi);
+    final LatLng place = LatLng(latVal, lngVal);
     return Scaffold(
       body: Center(
         child: Stack(
