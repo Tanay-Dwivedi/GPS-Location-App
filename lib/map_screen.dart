@@ -3,8 +3,13 @@ import "package:flutter_map/flutter_map.dart";
 import 'package:latlong2/latlong.dart';
 
 class MapScreen extends StatelessWidget {
-  MapScreen({Key? key}) : super(key: key);
-    final LatLng tomtomHQ = LatLng(52.376372, 4.908066);
+
+  MapScreen({Key? key, required this.lati, required this.longi})
+      : super(key: key);
+
+  final String lati;
+  final String longi;
+  final LatLng place = LatLng(23.0753926 , 76.8602017);
   final String apiKey = "06zU1pnrAR1lZwcZguKDycIgIE8zoxWq";
 
   @override
@@ -14,7 +19,7 @@ class MapScreen extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             FlutterMap(
-              options: MapOptions(center: tomtomHQ, zoom: 13.0),
+              options: MapOptions(center: place, zoom: 13.0),
               layers: [
                 TileLayerOptions(
                   urlTemplate: "https://api.tomtom.com/map/1/tile/basic/main/"
@@ -26,7 +31,7 @@ class MapScreen extends StatelessWidget {
                     Marker(
                       width: 75.0,
                       height: 75.0,
-                      point: tomtomHQ,
+                      point: place,
                       builder: (BuildContext context) => const Icon(
                           Icons.location_on,
                           size: 60.0,
